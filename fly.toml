@@ -7,6 +7,8 @@ processes = []
 
 [env]
 MONGO_URL = "mongodb+srv://daniel:pw1234@dass.7s4l02a.mongodb.net/?retryWrites=true&w=majority"
+JWT_SEC = "care-api-secret-proj"
+PORT = 8080
 
 [build]
 dockerfile = "Dockerfile"
