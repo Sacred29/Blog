@@ -3,20 +3,22 @@ import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, );
-
+  const app = await NestFactory.create(AppModule,{
+    
+  } );
+  app.enableCors()
   // Swagger bootstrap
   const config = new DocumentBuilder()
-    .setTitle('Gift of Caring')
-    .setDescription('API for Gift of Caring Project')
+    .setTitle('Blog stuff')
+    .setDescription("API for Daniel's blog stuff")
     .setVersion('1.0')
     .addBearerAuth()
-    // .addTag('cats')
+    // .addTag('')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('/api/v1', app, document);
 
 
-  await app.listen(3000);
+  await app.listen(process.env.PORT || 8080);
 }
 bootstrap();
